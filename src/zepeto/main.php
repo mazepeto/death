@@ -7,6 +7,8 @@ use pocketmine\Player;
 use pocketmine\event\entity\EntityDamageEvent;
 use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
+use pocketmine\entity\Effect;
+use pocketmine\entity\EffectInstance;
 
 class main extends PluginBase implements Listener{
     
@@ -27,7 +29,8 @@ $player->setHealth($player->getMaxHealth());
     switch (mt_rand(1,6)){
         case 1:
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
-        break;
+        $playee->addEffect(new EffectInstance(Effect::getEffect(2), 100, 
+        break; 
         case 2:
         $player->addTitle("§l§c사망", "§r§e10초후 움직일 수 있습니다", 30, 200, 20);
         break;
