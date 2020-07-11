@@ -25,9 +25,10 @@ $event->setCancelled();
 $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 $player->setHealth($player->getMaxHealth());
 foreach($player->getInventory()->getContents() as $slot=>$item) {
-   if($item->getCustomName() === "Name") {
+   if($item->getCustomName() === "§7스폰권") {
      $item->setCount($item->getCount() - 1);
      $player->getInventory()->setItem($slot, $item);
+     $player->addTitle("§l§c사망", "§r§e스폰권하나가 차감되었습니다", 10, 40, 10);
    }
     else 
         $this->title
