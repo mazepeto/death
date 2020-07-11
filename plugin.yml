@@ -7,3 +7,4 @@ api: 3.0.0
 commands:
 즉시리스폰:
 description: made by zepeto
+default: op
