@@ -32,7 +32,6 @@ foreach($player->getInventory()->getContents() as $slot=>$item) {
     else 
         $this->title
  }
-
    }
 }
   
