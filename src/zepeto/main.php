@@ -10,6 +10,7 @@ use pocketmine\plugin\PluginBase;
 use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\item\Item;
+use pocketmine\inventory\Inventory;
 
 class main extends PluginBase implements Listener{
     
