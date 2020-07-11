@@ -23,6 +23,7 @@ if($event->getFinalDamage() >= $player->getHealth()) {
 $event->setCancelled();
 $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 $player->setHealth($player->getMaxHealth());
+$this->title
    }
 }
   
