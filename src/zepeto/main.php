@@ -26,7 +26,7 @@ $player->setHealth($player->getMaxHealth());
 }
   
   public function title(player $playee){
-    switch (mt_rand(1,6)){
+    switch (mt_rand(1,7)){
         case 1:
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $playee->addEffect(new EffectInstance(Effect::getEffect(2), 100, 
@@ -46,6 +46,8 @@ $player->setHealth($player->getMaxHealth());
         case 6:
         $player->addTitle("§l§c사망", "§r§e10초후 움직일 수 있습니다", 30, 200, 20);
         break;
+        case 7:
+        $playee->addTitle("§lßc사망", "§r§e20초후 움직일 수 있습니다", 30, 400,20
         }
     }
 
