@@ -3,3 +3,7 @@ author: zepeto
 main: zepeto\main
 version: 1.0.0
 api: 3.0.0
+
+commands:
+즉시리스폰:
+description: made by zepeto
