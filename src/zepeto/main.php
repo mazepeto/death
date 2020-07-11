@@ -68,8 +68,7 @@ foreach($player->getInventory()->getContents() as $slot=>$item) {
         }
     }
     
-    public function onCommand(CommandSender $p, Command $command, $label, array
-$args) :bool {
+    public function onCommand(CommandSender $p, Command $command, $label, array $args) :bool {
 $p = $command->getName();
 if ($p == "즉시스폰"){
 if (!isset($args[0])){
