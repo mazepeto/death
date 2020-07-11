@@ -9,6 +9,7 @@ use pocketmine\event\Listener;
 use pocketmine\plugin\PluginBase;
 use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
+use pocketmine\item\Item;
 
 class main extends PluginBase implements Listener{
     
