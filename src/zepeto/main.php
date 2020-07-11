@@ -47,9 +47,13 @@ $player->setHealth($player->getMaxHealth());
         $player->addTitle("§l§c사망", "§r§e10초후 움직일 수 있습니다", 30, 200, 20);
         break;
         case 7:
-        $playee->addTitle("§lßc사망", "§r§e20초후 움직일 수 있습니다", 30, 400,20
+        $player->addTitle("§lßc사망", "§r§e20초후 움직일 수 있습니다", 30, 400,20);
         }
     }
+                                              
+    pblic function onMove(PlayerMoveEvent $event){
+        $event->setCancelled();
+        }
 
     public function onDisable(){
     }
