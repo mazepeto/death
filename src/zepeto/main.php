@@ -24,7 +24,15 @@ if($event->getFinalDamage() >= $player->getHealth()) {
 $event->setCancelled();
 $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 $player->setHealth($player->getMaxHealth());
-$this->title
+foreach($player->getInventory()->getContents() as $slot=>$item) {
+   if($item->getCustomName() === "Name") {
+     $item->setCount($item->getCount() - 1);
+     $player->getInventory()->setItem($slot, $item);
+   }
+    else 
+        $this->title
+ }
+
    }
 }
   
