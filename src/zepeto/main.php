@@ -66,7 +66,20 @@ foreach($player->getInventory()->getContents() as $slot=>$item) {
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 400, 1, false));
         }
     }
-
+    
+    public function onCommand(CommandSender $p, Command $command, $label, array
+$args) :bool {
+$p = $command->getName();
+if ($p == "즉시스폰"){
+if (!isset($args[0])){
+        $StatItem = Item::get ( 339, 0, $number );
+        $StatItem->setCustomName ( "§7스폰권" );
+        $StatItem->setLore ( [ "§7즉시 리스폰 되게 하기 위한것" ] );
+        $player->getInventory ()->addItem ( $StatItem );
+    return ture;
+    }
+    }
+    
     public function onDisable(){
     }
 }
