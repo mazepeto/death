@@ -44,34 +44,43 @@ foreach($player->getInventory()->getContents() as $slot=>$item) {
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 100, 1, false));
         $this->Move(PlayerMoveEvent $e);
-        $this->Command(PlayerCommandPreprocessEvent $event);
+        $this->Command(PlayerCommandPreprocessEvent $e);
         break; 
         case 2:
         $player->addTitle("§l§c사망", "§r§e10초후 움직일 수 있습니다", 30, 200, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 200, 1, false));
+        $this->Mave(PlayerMoveEvent $e);
+        $this->Cmd(PlayerCommandPreprocessEvent $e);
         break;
         case 3:
         $player->addTitle("§l§c사망", "§r§e15초후 움직일 수 있습니다", 30, 300, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 300, 1, false));
-        $this->Move(PlayerMoveEvent $e);
+        $this->Mve(PlayerMoveEvent $e);
+        $this->Cmmd(PlayerCommandPreprocessEvent $e);
         break;
         case 4:
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 100, 1, false));
         $this->Move(PlayerMoveEvent $e);
+        $this->Command(PlayerCommandPreprocessEvent $e);
         break;
         case 5:
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 100, 1, false));
         $this->Move(PlayerMoveEvent $e);
+        $this->Command(PlayerCommandPreprocessEvent $e);
         break;
         case 6:
         $player->addTitle("§l§c사망", "§r§e10초후 움직일 수 있습니다", 30, 200, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 200, 1, false));
+        $this->Cmd(PlayerCommandPreprocessEvent $e);
+        $this->Mave(PlayerMoveEvent $e);
         break;
         case 7:
         $player->addTitle("§l§c사망", "§r§e20초후 움직일 수 있습니다", 30, 400, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 400, 1, false));
+        $this->Mv(PlayerMoveEvent $e);
+        $this->Cd(PlayerCommandPreprocessEvent $e)
         break;
 }
 }
@@ -99,12 +108,11 @@ if(!isset($this->data[$name])) return true;
 
 if($this->data[$name] >= time()){
 
-$player->sendMessage("5초간 움직일 수 없습니다.");
 $player->sendMessage("남은시간 : ".$this->data[$name] - time() + 1);
 }
 }
 
-public function Command(PlayerCommandPreprocessEvent $event){
+public function Command(PlayerCommandPreprocessEvent $e){
 
 $player = $e->getPlayer();
 $name = $player->getName();
@@ -113,11 +121,86 @@ if(!isset($this->data[$name])) return true;
 
 if($this->data[$name] >= time()){
 
-$player->sendMessage("5초간 명령어를 사용하실 수 없습니다");
 $player->sendMessage("남은시간 : ".$this->data[$name] - time() + 1);
 }
 }
 
+public function Mave(PlayerMoveEvent $e){
+
+$player = $e->getPlayer();
+$name = $player->getName();
+
+if(!isset($time->data[$name])) return true;
+
+if($time->data[$name] >= time()){
+
+$player->sendMessage("남은시간 : ".$time>data[$name] - time() + 1);
+}
+}
+
+public function Cmd(PlayerCommandPreprocessEvent $e){
+
+$player = $e->getPlayer();
+$name = $player->getName();
+
+if(!isset($time->data[$name])) return true;
+
+if($time->data[$name] >= time()){
+
+$player->sendMessage("남은시간 : ".$time->data[$name] - time() + 1);
+}
+}
+
+public function Mve(PlayerMoveEvent $e){
+
+$player = $e->getPlayer();
+$name = $player->getName();
+
+if(!isset($ttime->data[$name])) return true;
+
+if($ttime->data[$name] >= time()){
+
+$player->sendMessage("남은시간 : ".$ttime>data[$name] - time() + 1);
+}
+}
+
+public function Cmmd(PlayerCommandPreprocessEvent $e){
+
+$player = $e->getPlayer();
+$name = $player->getName();
+
+if(!isset($ttime->data[$name])) return true;
+
+if($ttime->data[$name] >= time()){
+
+$player->sendMessage("남은시간 : ".$ttime->data[$name] - time() + 1);
+}
+}
+
+public function Mv(PlayerMoveEvent $e){
+
+$player = $e->getPlayer();
+$name = $player->getName();
+
+if(!isset($ttis->data[$name])) return true;
+
+if($ttis->data[$name] >= time()){
+
+$player->sendMessage("남은시간 : ".$ttis>data[$name] - time() + 1);
+}
+}
+
+public function Cd(PlayerCommandPreprocessEvent $e){
+
+$player = $e->getPlayer();
+$name = $player->getName();
+
+if(!isset($ttis->data[$name])) return true;
+
+if($ttis->data[$name] >= time()){
+
+$player->sendMessage("남은시간 : ".$ttis->data[$name] - time() + 1);
+}
     
     public function onDisable(){
     }
