@@ -11,11 +11,13 @@ use pocketmine\entity\Effect;
 use pocketmine\entity\EffectInstance;
 use pocketmine\item\Item;
 use pocketmine\inventory\Inventory;
+use pocketmine\command\command;
+use pocketmine\command\CommandSender;
 
 class main extends PluginBase implements Listener{
     
     public function onEnable(){
-        $this->getServer()->getPluginManager()->registerEvents($this,$this);
+        $this->getServer()->getPluginManager ()->registerEvents($this,$this);
     }
     
     public function onDamage(EntityDamageEvent $event) {
@@ -43,59 +45,60 @@ foreach($player->getInventory()->getContents() as $slot=>$item) {
         case 1:
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 100, 1, false));
-        $this->Move(PlayerMoveEvent $e);
-        $this->Command(PlayerCommandPreprocessEvent $e);
+        $this->Move(PlayerMoveEvent);
+        $this->Command(PlayerCommandPreprocessEvent);
         break; 
         case 2:
         $player->addTitle("§l§c사망", "§r§e10초후 움직일 수 있습니다", 30, 200, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 200, 1, false));
-        $this->Mave(PlayerMoveEvent $e);
-        $this->Cmd(PlayerCommandPreprocessEvent $e);
+        $this->Mave(PlayerMoveEvent);
+        $this->Cmd(PlayerCommandPreprocessEvent);
         break;
         case 3:
         $player->addTitle("§l§c사망", "§r§e15초후 움직일 수 있습니다", 30, 300, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 300, 1, false));
-        $this->Mve(PlayerMoveEvent $e);
-        $this->Cmmd(PlayerCommandPreprocessEvent $e);
+        $this->Mve(PlayerMoveEvent);
+        $this->Cmmd(PlayerCommandPreprocessEvent);
         break;
         case 4:
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 100, 1, false));
-        $this->Move(PlayerMoveEvent $e);
-        $this->Command(PlayerCommandPreprocessEvent $e);
+        $this->Move(PlayerMoveEvent);
+        $this->Command(PlayerCommandPreprocessEvent);
         break;
         case 5:
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 100, 1, false));
-        $this->Move(PlayerMoveEvent $e);
-        $this->Command(PlayerCommandPreprocessEvent $e);
+        $this->Move(PlayerMoveEvent);
+        $this->Command(PlayerCommandPreprocessEvent);
         break;
         case 6:
         $player->addTitle("§l§c사망", "§r§e10초후 움직일 수 있습니다", 30, 200, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 200, 1, false));
-        $this->Cmd(PlayerCommandPreprocessEvent $e);
-        $this->Mave(PlayerMoveEvent $e);
+        $this->Cmd(PlayerCommandPreprocessEvent);
+        $this->Mave(PlayerMoveEvent);
         break;
         case 7:
         $player->addTitle("§l§c사망", "§r§e20초후 움직일 수 있습니다", 30, 400, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 400, 1, false));
-        $this->Mv(PlayerMoveEvent $e);
-        $this->Cd(PlayerCommandPreprocessEvent $e)
+        $this->Mv(PlayerMoveEvent);
+        $this->Cd(PlayerCommandPreprocessEvent);
         break;
 }
 }
 }
 }
     
-    public function onCommand(CommandSender $p, Command $command, $label, array $args) :bool {
-$p = $command->getName();
-if ($p == "즉시스폰"){
+    public function onCommand(CommandSender $sender, Command $command, $label, array $args) :bool {
+$sender = $command->getName();
+if ($command == "즉시스폰"){
 if (!isset($args[0])){
         $StatItem = Item::get ( 339, 0, $number );
         $StatItem->setCustomName ( "§7스폰권" );
         $StatItem->setLore ( [ "§7즉시 리스폰 되게 하기 위한것" ] );
         $player->getInventory ()->addItem ( $StatItem );
     return true;
+    }
     }
     }
 
@@ -200,6 +203,7 @@ if(!isset($ttis->data[$name])) return true;
 if($ttis->data[$name] >= time()){
 
 $player->sendMessage("남은시간 : ".$ttis->data[$name] - time() + 1);
+}
 }
     
     public function onDisable(){
