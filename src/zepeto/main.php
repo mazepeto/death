@@ -24,6 +24,14 @@ if($event->getFinalDamage() >= $player->getHealth()) {
 $event->setCancelled();
 $player->teleport($this->getServer()->getDefaultLevel()->getSafeSpawn());
 $player->setHealth($player->getMaxHealth());
+$player = $e->getPlayer();
+$name = $player->getName();
+
+$this->data[$name] = time() + 5;
+$time->data[$name] = time() + 10;
+$ttime->data[$name] = time() + 15;
+$ttis->data[$name] = time() + 20;
+
 foreach($player->getInventory()->getContents() as $slot=>$item) {
    if($item->getCustomName() === "§7스폰권") {
      $item->setCount($item->getCount() - 1);
@@ -31,13 +39,7 @@ foreach($player->getInventory()->getContents() as $slot=>$item) {
      $player->addTitle("§l§c사망", "§r§e스폰권하나가 차감되었습니다", 10, 40, 10);
    }
     else 
-        $this->title
- }
-   }
-}
-  
-  public function title(player $player){
-    switch (mt_rand(1,7)){
+        switch (mt_rand(1,7)){
         case 1:
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 100, 1, false));
@@ -66,7 +68,9 @@ foreach($player->getInventory()->getContents() as $slot=>$item) {
         $player->addTitle("§l§c사망", "§r§e20초후 움직일 수 있습니다", 30, 400, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 400, 1, false));
         }
-    }
+ }
+   }
+}
     
     public function onCommand(CommandSender $p, Command $command, $label, array $args) :bool {
 $p = $command->getName();
