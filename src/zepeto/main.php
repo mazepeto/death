@@ -76,7 +76,7 @@ if (!isset($args[0])){
         $StatItem->setCustomName ( "§7스폰권" );
         $StatItem->setLore ( [ "§7즉시 리스폰 되게 하기 위한것" ] );
         $player->getInventory ()->addItem ( $StatItem );
-    return ture;
+    return true;
     }
     }
     
