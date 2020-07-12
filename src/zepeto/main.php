@@ -44,6 +44,7 @@ foreach($player->getInventory()->getContents() as $slot=>$item) {
         $player->addTitle("§l§c사망", "§r§e5초후 움직일 수 있습니다", 30, 100, 20);
         $player->addEffect(new EffectInstance(Effect::getEffect(15), 100, 1, false));
         $this->Move(PlayerMoveEvent $e);
+        $this->Command(PlayerCommandPreprocessEvent $event);
         break; 
         case 2:
         $player->addTitle("§l§c사망", "§r§e10초후 움직일 수 있습니다", 30, 200, 20);
@@ -102,6 +103,21 @@ $player->sendMessage("5초간 움직일 수 없습니다.");
 $player->sendMessage("남은시간 : ".$this->data[$name] - time() + 1);
 }
 }
+
+public function Command(PlayerCommandPreprocessEvent $event){
+
+$player = $e->getPlayer();
+$name = $player->getName();
+
+if(!isset($this->data[$name])) return true;
+
+if($this->data[$name] >= time()){
+
+$player->sendMessage("5초간 명령어를 사용하실 수 없습니다");
+$player->sendMessage("남은시간 : ".$this->data[$name] - time() + 1);
+}
+}
+
     
     public function onDisable(){
     }
